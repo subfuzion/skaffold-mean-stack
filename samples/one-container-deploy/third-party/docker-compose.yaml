@@ -1,0 +1,28 @@
+version: "2.4"
+
+networks:
+
+  backend_net:
+    driver: bridge
+
+services:
+
+  app:
+    image: app
+    build: .
+    environment:
+      - PORT=8080
+      - ATLAS_URI=mongodb://database
+    networks:
+      - backend_net
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+
+  database:
+    image: mongo:6
+    networks:
+      - backend_net
+    ports:
+      - "27017:27017"
