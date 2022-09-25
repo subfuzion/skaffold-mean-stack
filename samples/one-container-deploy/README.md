@@ -6,13 +6,17 @@ directory.
 
 Clone this repo and cd to `skaffold-mean-stack/samples/one-container-deploy`.
 
-# Run containers locally
+> The single container deployment depends on the following `Dockerfile` to build
+the container image:
+> `./samples/one-container-deploy/third-party/Dockerfile`
+
+## Run containers locally
 
 You can launch containers manually using `docker` commands, launch them with a
 single command using `docker compose`, or launch them with a single command
 using `minikube`.
 
-## Manually launch containers using `docker` commands
+### Manually launch containers using `docker` commands
 
 1. Cd to `skaffold-mean-stack/samples/one-container-deploy/thirdparty` and
 enter the following:
@@ -44,7 +48,7 @@ docker rm -f database
 docker network rm backend_net
 ```
 
-## Launch containers using Docker Compose
+### Launch containers using Docker Compose
 
 1. Cd to `skaffold-mean-stack/samples/one-container-deploy` and enter the
 following:
@@ -71,7 +75,8 @@ docker rm $(docker ps -aq)
 
 ## third-party
 
-The `third-party` directory was cloned from this
+The `third-party` directory contains the MEAN stack demo source code. It was
+cloned from this
 [pull request](https://github.com/mongodb-developer/mean-stack-example/pull/2)
 of
 [mongodb-developer/mean-stack-example](https://github.com/mongodb-developer/mean-stack-example/pull/2).
