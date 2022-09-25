@@ -16,7 +16,7 @@ You can launch containers manually using `docker` commands, launch them with a
 single command using `docker compose`, or launch them with a single command
 using `minikube`.
 
-### Manually launch containers using `docker` commands
+### 🚀 Manually launch containers using `docker` commands
 
 1. Cd to `skaffold-mean-stack/samples/one-container-deploy/thirdparty` and
 enter the following:
@@ -48,7 +48,7 @@ docker rm -f database
 docker network rm backend_net
 ```
 
-### Launch containers using Docker Compose
+### 🚀 Launch containers using Docker Compose
 
 1. Cd to `skaffold-mean-stack/samples/one-container-deploy` and enter the
 following:
