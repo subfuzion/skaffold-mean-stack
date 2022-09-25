@@ -14,43 +14,29 @@ using `minikube`.
 
 ## Manually launch containers using `docker` commands
 
-1. Cd to `skaffold-mean-stack/samples/one-container-deploy/thirdparty` and run:
+1. Cd to `skaffold-mean-stack/samples/one-container-deploy/thirdparty` and
+enter the following:
 
 ```text
+# build a docker container image
 docker build -t app .
-```
 
-2. Create a network
-
-```text
+# create a network so the app can connect to mongo
 docker network create --driver bridge backend_net
-```
 
-3. Start the database
-
-```text
+# start mongodb in a container
 docker run -d --name database -p 27017:27017 --network backend_net mongo:6
-```
 
-4. Start the app
-
-```text
+# start the app in a container
 docker run -d -p 8080:8080 --name app --network backend_net -e ATLAS_URI="mongodb://database" app
-```
 
-5. View app log
-
-```text
+# tail the app log (press Ctrl-C when finished)
 docker logs -f app
 ```
 
-Press Ctrl-C when finished.
+2. Navigate to http://localhost:8080 in your browser.
 
-6. Test app
-
-Navigate to http://localhost:8080 in your browser.
-
-7. Clean up
+3. Clean up
 
 ```text
 docker rm -f app
@@ -60,15 +46,14 @@ docker network rm backend_net
 
 ## Launch containers using Docker Compose
 
-1. Cd to `skaffold-mean-stack/samples/one-container-deploy` and run:
+1. Cd to `skaffold-mean-stack/samples/one-container-deploy` and enter the
+following:
 
 ```text
 docker compose up
 ```
 
-2. Test app
-
-Navigate to http://localhost:8080 in your browser.
+2. Navigate to http://localhost:8080 in your browser.
 
 3. Clean up
 
