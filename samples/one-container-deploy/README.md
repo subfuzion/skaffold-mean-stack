@@ -73,6 +73,27 @@ To remove all stopped containers, enter:
 docker rm $(docker ps -aq)
 ```
 
+### 🚀 Launch containers using Skaffold and Minikube
+
+1. Cd to `skaffold-mean-stack/samples/one-container-deploy` and enter the
+   following:
+
+```text
+minikube tunnel
+```
+
+2. Open another terminal and enter:
+
+```text
+skaffold dev
+```
+
+3. Navigate to http://localhost:8080 in your browser.
+
+4. Clean up
+
+Press Ctrl-C in the terminals you were using.
+
 ## third-party
 
 The `third-party` directory contains the MEAN stack demo source code. It was

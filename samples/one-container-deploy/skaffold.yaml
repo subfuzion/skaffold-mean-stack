@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata:
+  name: skaffold-mean-stack
+build:
+  artifacts:
+  - image: gcr.io/project_id/app
+    context: third-party
+    docker: {}
+deploy:
+  kubectl:
+    manifests:
+    - kubernetes/app-external.yaml
+    - kubernetes/app.yaml
+    - kubernetes/database.yaml
