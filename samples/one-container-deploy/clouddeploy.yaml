@@ -1,0 +1,18 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+  name: mean-stack-app
+description: Mean stack app pipeline
+serialPipeline:
+  stages:
+  - targetId: run-qsstaging
+
+---
+
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: run-qsstaging
+description: Cloud Run staging service
+run:
+  location: projects/PROJECT_ID/locations/LOCATION_ID

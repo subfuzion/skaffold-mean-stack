@@ -1,0 +1,20 @@
+apiVersion: "serving.knative.dev/v1"
+kind: Service
+metadata:
+  name: mean-stack-app
+  annotations:
+    run.googleapis.com/ingress: all
+spec:
+  template:
+    spec:
+      containers:
+      - image: gcr.io/PROJECT_ID/mean-stack-app
+        ports:
+          - containerPort: 8080
+            name: http1
+        env:
+            - name: ATLAS_URI
+              valueFrom:
+                secretKeyRef:
+                  key: 1
+                  name: mean-stack-app-atlas-uri

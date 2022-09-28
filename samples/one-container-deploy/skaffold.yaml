@@ -1,15 +1,18 @@
-apiVersion: skaffold/v2beta29
+apiVersion: skaffold/v3alpha1
 kind: Config
 metadata:
   name: skaffold-mean-stack
 build:
+  tagPolicy:
+    sha256: {}
+  local:
+    push: true
   artifacts:
-  - image: gcr.io/project_id/app
+  - image: gcr.io/PROJECT_ID/mean-stack-app
     context: third-party
-    docker: {}
+    platforms: [linux/amd64]
+manifests:
+  rawYaml:
+  - service.yaml
 deploy:
-  kubectl:
-    manifests:
-    - kubernetes/app-external.yaml
-    - kubernetes/app.yaml
-    - kubernetes/database.yaml
+  cloudrun: {}
